@@ -25,7 +25,7 @@
 .card{
     width: calc((100% / 5 ) - 10px);
     background-color: $primary-color ;
-    // border-radius: 10px;
+    border-radius: 10px;
     text-align: center;
     margin: 5px;
     flex-direction: column;

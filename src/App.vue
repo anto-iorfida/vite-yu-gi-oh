@@ -4,10 +4,12 @@ import { store } from './store.js';
 import AppHeader from './components/AppHeader.vue';
 import sectionCard from './components/sectionCard.vue';
 
+
 export default {
   components: {
     AppHeader,
-    sectionCard
+    sectionCard,
+    
     
   },
   data() {
@@ -21,6 +23,7 @@ export default {
       axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
       .then((response) => {
         store.cardObject = response.data.data;
+        store.isLoading = false;
         console.log(response);
       });
     }
@@ -36,7 +39,8 @@ export default {
 <AppHeader></AppHeader>
 
 <main>
-  <sectionCard></sectionCard>
+  <sectionCard ></sectionCard>
+  
 </main>
 </template>
 

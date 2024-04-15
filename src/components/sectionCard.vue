@@ -1,12 +1,14 @@
 <script>
 import { store } from '../store.js';
 import singleCard from './singleCard.vue';
+import AppLoader from './AppLoader.vue';
 
     export default {
         name: "sectionCard",
 
         components: {
-        singleCard
+        singleCard,
+        AppLoader
     },
         data(){
                 return{
@@ -20,7 +22,8 @@ import singleCard from './singleCard.vue';
 <template>
 <section>
     <div class="container d-flex p-10">
-        <singleCard v-for="card in store.cardObject" :key="card.id" :cardInfo="card"></singleCard>
+        <singleCard v-if="!store.isLoading" v-for="card in store.cardObject" :key="card.id" :cardInfo="card"></singleCard>
+        <AppLoader v-else></AppLoader>
         
     </div>
 </section>
