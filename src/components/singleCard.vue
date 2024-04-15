@@ -3,7 +3,8 @@
         name: "singleCard",
         props :{
             cardInfo: Object
-        },
+        }
+        }
 </script>
 
 <template>
@@ -24,13 +25,14 @@
 .card{
     width: calc((100% / 5 ) - 10px);
     background-color: $primary-color ;
+    // border-radius: 10px;
     text-align: center;
     margin: 5px;
     flex-direction: column;
     justify-content: space-between;
 
     *{
-        margin-bottom: 14px;
+        margin-bottom: 8px;
     }
     h4{
         color: white;
