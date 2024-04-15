@@ -2,10 +2,12 @@
 import axios from 'axios';
 import { store } from './store.js';
 import AppHeader from './components/AppHeader.vue';
+import sectionCard from './components/sectionCard.vue';
 
 export default {
   components: {
-    AppHeader
+    AppHeader,
+    sectionCard
     
   },
   data() {
@@ -32,8 +34,13 @@ export default {
 
 <template>
 <AppHeader></AppHeader>
+
+<main>
+  <sectionCard></sectionCard>
+</main>
 </template>
 
-<style >
+<style lang="scss">
+@use './style/generic';
 
 </style>
