@@ -1,21 +1,20 @@
 <script>
     export default {
         name: "singleCard",
-        data(){
-                return{
-
-                }
-            } 
-        }
+        props :{
+            cardInfo: Object
+        },
 </script>
 
 <template>
-<div class="card">
+<div class="card d-flex">
     <div class="image">
-        <img src="https://images.ygoprodeck.com/images/cards_small/34541863.jpg" alt="">
+        <img :src="cardInfo.card_images[0].image_url_small" alt="">
     </div>
-    <h4>A CELL BREDIJK FRFWEF</h4>
-    <p>Alien</p>
+    <h4>{{cardInfo.name}}</h4>
+    <p v-if="cardInfo.archetype && cardInfo.archetype.length > 0">{{ cardInfo.archetype }}</p>
+    <p v-else>Not specific</p>
+
 </div>
 </template>
 
@@ -27,6 +26,8 @@
     background-color: $primary-color ;
     text-align: center;
     margin: 5px;
+    flex-direction: column;
+    justify-content: space-between;
 
     *{
         margin-bottom: 14px;

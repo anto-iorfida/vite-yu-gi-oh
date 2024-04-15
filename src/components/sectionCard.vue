@@ -1,4 +1,5 @@
 <script>
+import { store } from '../store.js';
 import singleCard from './singleCard.vue';
 
     export default {
@@ -9,7 +10,7 @@ import singleCard from './singleCard.vue';
     },
         data(){
                 return{
-
+                    store
                 }
             } 
         }
@@ -19,14 +20,8 @@ import singleCard from './singleCard.vue';
 <template>
 <section>
     <div class="container d-flex p-10">
-        <singleCard></singleCard>
-        <singleCard></singleCard>
-        <singleCard></singleCard>
-        <singleCard></singleCard>
-        <singleCard></singleCard>
-        <singleCard></singleCard>
-        <singleCard></singleCard>
-        <singleCard></singleCard>
+        <singleCard v-for="card in store.cardObject" :key="card.id" :cardInfo="card"></singleCard>
+        
     </div>
 </section>
 </template>
