@@ -21,12 +21,12 @@ import { store } from '../store.js';
 <template>
 <section>
     <div class="container">
-        <select v-model="store.searchedStatus">
+        <select v-model="store.searchedArchetype">
                 <option value="">Scegli uno status</option>
                 <!-- Scelte disponibili -->
                 <option v-for="status in availableStatuses" :value="status">{{ status }}</option>
         </select>
-        <button>Cerca</button>
+        <button @click="$emit('searchPerfomed')">Cerca</button>
     </div>
 </section>
 </template>

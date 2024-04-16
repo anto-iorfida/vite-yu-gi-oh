@@ -20,9 +20,24 @@ export default {
     };
   },
   methods: {
-    getcardObjectFromApi() {
+    getArchetypeFromApi() {
+
+      let apiUrl = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0'
+
+      const queryParams= { 
+        
+      };
+
+      if(store.searchedArchetype !== '') {
+        queryParams.archetype = store.searchedArchetype;
+        
+      }
+
+
       // Prende le carte dall'api e popola il main
-      axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
+      axios.get(apiUrl, {
+        params: queryParams
+      })
       .then((response) => {
         store.cardObject = response.data.data;
         store.isLoading = false;
@@ -31,7 +46,7 @@ export default {
     }
   },
   mounted() {
-    this.getcardObjectFromApi();
+    this.getArchetypeFromApi();
   }
 
 }
@@ -41,7 +56,7 @@ export default {
 <AppHeader></AppHeader>
 
 <main>
-  <AppSearch></AppSearch>
+  <AppSearch @searchPerfomed="getArchetypeFromApi"></AppSearch>
   <sectionCard ></sectionCard>
   
 </main>

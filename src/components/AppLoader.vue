@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-    <div>
+    <div class="container">
         <img src="../assets/img/Rhombus.gif" alt="">
     </div>
 </template>
