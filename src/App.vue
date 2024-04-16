@@ -3,12 +3,14 @@ import axios from 'axios';
 import { store } from './store.js';
 import AppHeader from './components/AppHeader.vue';
 import sectionCard from './components/sectionCard.vue';
+import AppSearch from './components/AppSearch.vue';
 
 
 export default {
   components: {
     AppHeader,
     sectionCard,
+    AppSearch
     
     
   },
@@ -24,7 +26,7 @@ export default {
       .then((response) => {
         store.cardObject = response.data.data;
         store.isLoading = false;
-        console.log(response);
+        console.table(response);
       });
     }
   },
@@ -39,6 +41,7 @@ export default {
 <AppHeader></AppHeader>
 
 <main>
+  <AppSearch></AppSearch>
   <sectionCard ></sectionCard>
   
 </main>
