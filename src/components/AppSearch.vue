@@ -7,14 +7,14 @@ import axios from 'axios';
         data(){
                 return{
                     store,
-                    availableStatuses: [],
+                    availableStatuses: []
                     // availableStatuses: [
                     //     'Alien',
                     //     'Blackwing',
                     //     'Crystal',
                     //     'Deskbot',
                     //     'Favorite'
-                    // ],
+                    // ]
                 }
             },
             methods:{
@@ -39,7 +39,7 @@ import axios from 'axios';
         <select v-model="store.searchedArchetype">
                 <option value="">Scegli uno status</option>
                 <!-- Scelte disponibili -->
-                <option v-for="status in availableStatuses" :value="status">{{ status.archetype_name }}</option>
+                <option v-for="status in availableStatuses" :value="status.archetype_name">{{ status.archetype_name }}</option>
         </select>
         <button @click="$emit('searchPerfomed')">Cerca</button>
     </div>
@@ -52,7 +52,7 @@ import axios from 'axios';
         padding: 5px 10px;
         border-radius: 10px 10px 0 0;
         &:hover{
-             color: gray;
+            color: gray;
         }
     }
     button{
