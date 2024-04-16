@@ -22,17 +22,19 @@ export default {
   methods: {
     getArchetypeFromApi() {
 
-      let apiUrl = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0'
+      let apiUrl = 'https://db.ygoprodeck.com/api/v7/cardinfo.php'
 
       const queryParams= { 
         
+        num: 20,
+        offset: 0
       };
-
       if(store.searchedArchetype !== '') {
         queryParams.archetype = store.searchedArchetype;
         
       }
 
+console.log(queryParams.archetype);
 
       // Prende le carte dall'api e popola il main
       axios.get(apiUrl, {
@@ -41,7 +43,7 @@ export default {
       .then((response) => {
         store.cardObject = response.data.data;
         store.isLoading = false;
-        console.table(response);
+        
       });
     }
   },
